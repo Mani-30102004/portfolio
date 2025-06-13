@@ -5,32 +5,39 @@ import emailjs from '@emailjs/browser';
 const ContactSection = () => {
   const form = useRef();
 
-  const sendEmail = (e) => {
-    e.preventDefault();
+const sendEmail = (e) => {
+  e.preventDefault();
 
-    const currentTime = new Date().toLocaleString();
+  const currentTime = new Date().toLocaleString();
 
-    emailjs
-      .sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID, 
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID, 
-        form.current,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-        {
-          time: currentTime,
-        }
-      )
-      .then(
-        (result) => {
-          alert('Message sent successfully!');
-          form.current.reset();  // Clear form after sending
-        },
-        (error) => {
-          alert('Something went wrong. Please try again.');
-        }
-      );
+  // Build email parameters manually from form
+  const formData = {
+    name: form.current.name.value,
+    email: form.current.email.value,
+    subject: form.current.subject.value,
+    message: form.current.message.value,
+    time: currentTime,
   };
 
+  emailjs
+    .send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      formData,
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    )
+    .then(
+      (result) => {
+        console.log("Email sent successfully:", result.text);
+        alert("Message sent successfully!");
+        form.current.reset();
+      },
+      (error) => {
+        console.error("EmailJS error:", error);
+        alert("Something went wrong. Please try again later.");
+      }
+    );
+};
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4 md:px-6">
@@ -44,11 +51,12 @@ const ContactSection = () => {
         </div>
 
         <div className="flex flex-col md:flex-row gap-10">
+          {/* Left Contact Info */}
           <div className="md:w-1/2 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl p-8 text-white">
             <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
             <div className="space-y-6">
               <div className="flex items-start">
-                <Mail className="mr-4 mt-1 contact-icon" size={20} />
+                <Mail className="mr-4 mt-1" size={20} />
                 <div>
                   <h4 className="font-semibold mb-1">Email</h4>
                   <a href="mailto:manipabba30@gmail.com" className="hover:underline">
@@ -57,16 +65,16 @@ const ContactSection = () => {
                 </div>
               </div>
               <div className="flex items-start">
-                <Phone className="mr-4 mt-1 contact-icon" size={20} />
+                <Phone className="mr-4 mt-1" size={20} />
                 <div>
                   <h4 className="font-semibold mb-1">Phone</h4>
-                  <a href="tel:+91 9494463100" className="hover:underline">
+                  <a href="tel:+919494463100" className="hover:underline">
                     +91 9494463100
                   </a>
                 </div>
               </div>
               <div className="flex items-start">
-                <MapPin className="mr-4 mt-1 contact-icon" size={20} />
+                <MapPin className="mr-4 mt-1" size={20} />
                 <div>
                   <h4 className="font-semibold mb-1">Location</h4>
                   <p>Hyderabad, Telangana, India</p>
@@ -90,6 +98,7 @@ const ContactSection = () => {
             </div>
           </div>
 
+          {/* Right Contact Form */}
           <div className="md:w-1/2">
             <form ref={form} onSubmit={sendEmail} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
