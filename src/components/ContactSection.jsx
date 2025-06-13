@@ -10,7 +10,6 @@ const sendEmail = (e) => {
 
   const currentTime = new Date().toLocaleString();
 
-  // Build email parameters manually from form
   const formData = {
     name: form.current.name.value,
     email: form.current.email.value,
@@ -18,6 +17,11 @@ const sendEmail = (e) => {
     message: form.current.message.value,
     time: currentTime,
   };
+
+  console.log("Sending email with data:", formData);
+  console.log("Service ID:", import.meta.env.VITE_EMAILJS_SERVICE_ID);
+  console.log("Template ID:", import.meta.env.VITE_EMAILJS_TEMPLATE_ID);
+  console.log("Public Key:", import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
   emailjs
     .send(
@@ -38,6 +42,7 @@ const sendEmail = (e) => {
       }
     );
 };
+
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4 md:px-6">
