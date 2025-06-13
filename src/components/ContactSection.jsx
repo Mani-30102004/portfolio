@@ -12,19 +12,21 @@ const ContactSection = () => {
 
     emailjs
       .sendForm(
-        'service_sdoje7f', // replace with your EmailJS service ID
-        'template_nf8bpgl', // replace with your EmailJS template ID
+        import.meta.env.VITE_EMAILJS_SERVICE_ID, // service ID from env
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID, // template ID from env
         form.current,
-        'wUTJj27Mc40UOvr52', // replace with your EmailJS public key
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY, // public key from env
         {
           time: currentTime,
         }
       )
       .then(
-        (result) => {
+        () => {
           alert('Message sent successfully!');
+          form.current.reset(); // clear form after successful send
         },
         (error) => {
+          console.error('FAILED...', error);
           alert('Something went wrong. Please try again.');
         }
       );
