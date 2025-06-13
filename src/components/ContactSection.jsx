@@ -12,21 +12,20 @@ const ContactSection = () => {
 
     emailjs
       .sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID, // service ID from env
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID, // template ID from env
+        import.meta.env.VITE_EMAILJS_SERVICE_ID, 
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID, 
         form.current,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY, // public key from env
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
         {
           time: currentTime,
         }
       )
       .then(
-        () => {
+        (result) => {
           alert('Message sent successfully!');
-          form.current.reset(); // clear form after successful send
+          form.current.reset();  // Clear form after sending
         },
         (error) => {
-          console.error('FAILED...', error);
           alert('Something went wrong. Please try again.');
         }
       );
@@ -47,7 +46,6 @@ const ContactSection = () => {
         <div className="flex flex-col md:flex-row gap-10">
           <div className="md:w-1/2 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl p-8 text-white">
             <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
-
             <div className="space-y-6">
               <div className="flex items-start">
                 <Mail className="mr-4 mt-1 contact-icon" size={20} />
@@ -58,7 +56,6 @@ const ContactSection = () => {
                   </a>
                 </div>
               </div>
-
               <div className="flex items-start">
                 <Phone className="mr-4 mt-1 contact-icon" size={20} />
                 <div>
@@ -68,7 +65,6 @@ const ContactSection = () => {
                   </a>
                 </div>
               </div>
-
               <div className="flex items-start">
                 <MapPin className="mr-4 mt-1 contact-icon" size={20} />
                 <div>
@@ -81,22 +77,13 @@ const ContactSection = () => {
             <div className="mt-10">
               <h4 className="font-semibold mb-4">Connect with me</h4>
               <div className="flex space-x-4">
-                <a
-                  href="https://www.linkedin.com/in/pabba-mani-guptha-114a69249/"
-                  className="bg-white text-indigo-600 p-3 rounded-full hover:bg-indigo-100 transition-colors"
-                >
+                <a href="https://www.linkedin.com/in/pabba-mani-guptha-114a69249/" className="bg-white text-indigo-600 p-3 rounded-full hover:bg-indigo-100 transition-colors">
                   <Linkedin size={20} />
                 </a>
-                <a
-                  href="https://github.com/Mani-30102004"
-                  className="bg-white text-indigo-600 p-3 rounded-full hover:bg-indigo-100 transition-colors"
-                >
+                <a href="https://github.com/Mani-30102004" className="bg-white text-indigo-600 p-3 rounded-full hover:bg-indigo-100 transition-colors">
                   <Github size={20} />
                 </a>
-                <a
-                  href="mailto:manipabba30@gmail.com"
-                  className="bg-white text-indigo-600 p-3 rounded-full hover:bg-indigo-100 transition-colors"
-                >
+                <a href="mailto:manipabba30@gmail.com" className="bg-white text-indigo-600 p-3 rounded-full hover:bg-indigo-100 transition-colors">
                   <Mail size={20} />
                 </a>
               </div>
@@ -162,10 +149,7 @@ const ContactSection = () => {
                 ></textarea>
               </div>
 
-              <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
-              >
+              <button type="submit" className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
                 Send Message
               </button>
             </form>
