@@ -8,7 +8,7 @@ const certifications = [
     organization: "Cisco Networking Academy",
     date: "May 2025",
     description: "Professional certification covering fundamental programming concepts using Python.",
-    badge: "/pictures/cisconetworkingacademy.png",
+    badge: "/certificates/cisconetworkingacademy.png",
     certificateLink: "/certificates/pythonessentials1.pdf"
   },
   {
@@ -17,7 +17,7 @@ const certifications = [
     organization: "MongoDb",
     date: "MARCH 2024",
     description: "Professional certification introducing core MongoDB concepts, including data modeling, CRUD operations, and aggregation.",
-    badge: "/pictures/mongodb.avif",
+    badge: "/certificates/mongodb.avif",
     certificateLink: "/certificates/mongdb.pdf"
   },
   {
@@ -26,7 +26,7 @@ const certifications = [
     organization: "Infosys SpringBoard",
     date: "April 2024",
     description: "Comprehensive Course Covering Java Programming, Object-Oriented Concepts, and Application Development",
-    badge: "/pictures/infosysisspringboard.png",
+    badge: "/certificates/infosysisspringboard.png",
     certificateLink: "/certificates/javainfo.pdf"
   },
   {
@@ -35,7 +35,7 @@ const certifications = [
     organization: "Great Learning",
     date: "April 2024",
     description: "Course Covering Java Programming, Object-Oriented Concepts, and Application Development",
-    badge: "/pictures/greatlearning.jpg",
+    badge: "/certificates/greatlearning.jpg",
     certificateLink: "/certificates/javagreat.pdf"
   }
 ];

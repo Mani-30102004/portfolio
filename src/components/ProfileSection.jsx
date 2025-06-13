@@ -9,7 +9,7 @@ const ProfileSection = () => {
           <div className="md:w-1/2 mb-10 md:mb-0 flex justify-center">
             <div className="relative">
               <img 
-                src="/pictures/profile.jpg"  
+                src="/images/profile.jpg"  
                 alt="Pabba Mani guptha" 
                 className="profile-image w-64 h-64 md:w-80 md:h-80 object-cover"
               />
@@ -35,7 +35,7 @@ professors often seek my insight on challenging concepts.My journey highlights m
 I am poised to make significant contributions in my field and continue inspiring those around me    </p>
             <div className="flex space-x-4">
             <button
-              onClick={() => window.open('/pictures/resume.pdf', '_blank')}
+              onClick={() => window.open('/images/resume.pdf', '_blank')}
               className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
               View Resume
             </button>

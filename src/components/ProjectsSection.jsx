@@ -6,7 +6,7 @@ const projects = [
     id: 1,
     title: "Rural Healthcare",
     description: "Me and our Team,developed a project for rural healthcare where a user can easily log in and out, create their account, and communicate with an AI assistant about their problems. The AI assistant provides responses with remedies, prescribes tablets, and includes several other features such as stress detection, skin disease detection, diabetes management, and a BPM calculator .",
-    image: "/pictures/Healthcare.png",
+    image: "/images/Healthcare.png",
     technologies: ["ReactJs", "MY SQL", "Python 3 for bacckend"],
     contribution: "I assisted the team with database connectivity, contributed to various aspects of frontend development, and also supported some backend tasks"
   },
@@ -14,7 +14,7 @@ const projects = [
     id: 2,
     title: "Crate Wickets",
     description: "Developed a web application where an user can book a slot for box cricket and He/She can play the cricket in the selected slot.",
-    image: "/pictures/box cricket.webp",
+    image: "/images/box cricket.webp",
     technologies: ["HTML", "CSS", "JAVA SCRIPT", "MY SQL","Python"],
     contribution: "I contributed to both the frontend and backend development, including slot booking functionality and database connectivity.."
   },
@@ -22,7 +22,7 @@ const projects = [
     id: 3,
     title: "Calender Managment System",
     description: "Developed a C program “Uses to store and manage events,and reminder for specific dates.",
-    image: "/pictures/calender managment.png",
+    image: "/images/calender managment.png",
     technologies: ["DataStructures in c"],
     contribution: "I played a key role in developing the entire codebase for the project"
   }
